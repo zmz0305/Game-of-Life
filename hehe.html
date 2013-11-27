@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Game of poor man's life</h1>
+<script type="text/JavaScript" src="jsDraw2D_Uncompressed.js"></script>
+<canvas id="canvas" width='1000' height='1000'></canvas>
+<script type="text/javascript" src="GameOfFuckingLife.js"></script>
+<script type="text/javascript">
+game=new GameOfFuckingLife();
+function run()
+{
+	game.calculate();
+	game.play();
+	game.swapTwoArrays();
+}
+setInterval("run()",0);
+</script>
+</body>
+</html>
