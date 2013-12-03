@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+
+</head>
 <body>
 <h1>Game of poor man's life</h1>
 <script type="text/JavaScript" src="jsDraw2D_Uncompressed.js"></script>
-<canvas id="canvas" width='1000' height='1000'></canvas>
+<script type="text/javascript">
+function getCoordinates(e)
+{
+	var offsetOfBox = document.getElementById('canvas').offset();
+	x = e.clientX - offsetOfBox.left;
+	y = e.clientY - offsetOfBox.top + $(window).scrollTop();
+	alert("sdf");
+}
+</script>
+<canvas id="canvas" width='1000' height='1000' onmousemove="getCoordinates(event)"></canvas>
 <script type="text/javascript" src="GameOfFuckingLife.js"></script>
 <script type="text/javascript">
 game=new GameOfFuckingLife();

@@ -8,6 +8,7 @@ function GameOfFuckingLife(){
 	this.countNeighbors=countNeighbors;
 	this.swapTwoArrays=swapTwoArrays;
 	this.map=get2DArray(this.width,this.height);
+	this.getCoordinates=getCoordinates;
 	this.previousMap=get2DArray(this.width,this.height);
 	for(var i=1;i<this.width-1;i++)
 		for(var j=1;j<this.width-1;j++)
@@ -103,4 +104,12 @@ function play()
 				this.draw(i*10,j*10,"White");
 		}
 
+}
+
+function getCoordinates(e)
+{
+    var offsetOfBox = document.getElementById('canvas').offset();
+    x = e.clientX - offsetOfBox.left;
+    y = e.clientY - offsetOfBox.top + $(window).scrollTop();
+    alert(xy);
 }
