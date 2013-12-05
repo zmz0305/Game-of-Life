@@ -5,10 +5,11 @@ function GameOfFuckingLife(){
 	this.calculate=calculate;
 	this.play=play;
 	this.draw=draw;
+	this.drawText=drawText;
 	this.countNeighbors=countNeighbors;
 	this.swapTwoArrays=swapTwoArrays;
 	this.map=get2DArray(this.width,this.height);
-	this.getCoordinates=getCoordinates;
+	// this.getCoordinates=getCoordinates;
 	this.previousMap=get2DArray(this.width,this.height);
 	for(var i=1;i<this.width-1;i++)
 		for(var j=1;j<this.width-1;j++)
@@ -31,10 +32,10 @@ function draw(x, y,color){
 	
 }
 function drawText(textString,x,y){
- 	var canvas=document.getElementById("canvas");
- 	var ctx=canvas.getContext("2d");
- 	ctx.fillStyle="rgb(200,0,0)";
- 	ctx.fillText(textString,x,y,100);
+	var canvas=document.getElementById("canvas");
+	var ctx=canvas.getContext("2d");
+	ctx.fillStyle="rgb(200,0,0)";
+	ctx.fillText(textString,x,y,100);
  }
 function get2DArray(D1,D2)
 {
@@ -106,10 +107,3 @@ function play()
 
 }
 
-function getCoordinates(e)
-{
-    var offsetOfBox = document.getElementById('canvas').offset();
-    x = e.clientX - offsetOfBox.left;
-    y = e.clientY - offsetOfBox.top + $(window).scrollTop();
-    alert(xy);
-}

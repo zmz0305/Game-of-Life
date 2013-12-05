@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<script type="text/javascript" src="GameOfFuckingLife.js"></script>
+<script type="text/JavaScript" src="jsDraw2D_Uncompressed.js"></script>
 </head>
 <body>
 <h1>Game of poor man's life</h1>
-<script type="text/JavaScript" src="jsDraw2D_Uncompressed.js"></script>
 <script type="text/javascript">
-function getCoordinates(e)
+function drawText(textString,x,y){
+	var canvas=document.getElementById("canvas");
+	var ctx=canvas.getContext("2d");
+	ctx.fillStyle="rgb(200,0,0)";
+	ctx.fillText(textString,x,y,100);
+ }
+
+function getCoordinates()
 {
-	var offsetOfBox = document.getElementById('canvas').offset();
-	x = e.clientX - offsetOfBox.left;
-	y = e.clientY - offsetOfBox.top + $(window).scrollTop();
-	alert("sdf");
+	// var mouseX;
+ // 	var mouseY;
+	var canvas=document.getElementById("canvas");
+	var ctx=canvas.getContext("2d");
+	ctx.canvas.addEventListener('mousemove',function(event){
+		mouseX=event.clientX-ctx.canvas.offsetLeft;
+		mouseY=event.clientY-ctx.canvas.offsetTop;
+	})
+	drawText(mouseX,100, 100);
 }
 </script>
 <canvas id="canvas" width='1000' height='1000' onmousemove="getCoordinates(event)"></canvas>
-<script type="text/javascript" src="GameOfFuckingLife.js"></script>
+
 <script type="text/javascript">
 game=new GameOfFuckingLife();
 function run()
