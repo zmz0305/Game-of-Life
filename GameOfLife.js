@@ -1,4 +1,4 @@
-function GameOfFuckingLife(){
+function GameOfLife(){
 	this.width=100;
 	this.height=100;
 	this.get2DArray=get2DArray;
