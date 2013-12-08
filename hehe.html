@@ -14,23 +14,29 @@ function drawText(textString,x,y){
 	ctx.fillText(textString,x,y,100);
  }
 
-function getCoordinates()
-{
-	// var mouseX;
- // 	var mouseY;
-	var canvas=document.getElementById("canvas");
-	var ctx=canvas.getContext("2d");
-	ctx.canvas.addEventListener('mousemove',function(event){
-		mouseX=event.clientX-ctx.canvas.offsetLeft;
-		mouseY=event.clientY-ctx.canvas.offsetTop;
-	})
-	drawText(mouseX,100, 100);
-}
+
 </script>
-<canvas id="canvas" width='1000' height='1000' onmousemove="getCoordinates(event)"></canvas>
+<canvas id="canvas" width='1000' height='1000' onmousemove="setLife(event)"></canvas>
 
 <script type="text/javascript">
 game=new GameOfFuckingLife();
+function setLife()
+{
+	//var mouseX;
+ // 	var mouseY;
+	var canvas=document.getElementById("canvas");
+	var ctx=canvas.getContext("2d");
+	ctx.canvas.addEventListener('click',function(event){
+		mouseX=event.clientX-ctx.canvas.offsetLeft;
+		mouseY=event.clientY-ctx.canvas.offsetTop;
+		
+		//alert(Math.floor(mouseX/10),Math.floor(mouseY/10),game.map[Math.floor(mouseX/10)][Math.floor(mouseY/10)]);
+	})
+	game.previousMap[Math.floor(mouseX/10)][Math.floor(mouseY/10)]=true;
+	
+	drawText(mouseX,100, 100);
+	drawText(mouseY,130, 100);
+}
 function run()
 {
 	game.calculate();
